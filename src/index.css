@@ -2,11 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ocultar scrollbars para que parezca una app nativa */
-body::-webkit-scrollbar {
-  display: none;
+body::-webkit-scrollbar { display: none; }
+body { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 🚀 SISTEMA DE IMPRESIÓN PROFESIONAL */
+@media print {
+  body { 
+    background: white !important; 
+    -webkit-print-color-adjust: exact; 
+    print-color-adjust: exact; 
+    margin: 0; 
+  }
+  
+  /* Ocultar todo el contenido de la pantalla */
+  .screen-area { display: none !important; }
+  
+  /* Mostrar SOLO el área de impresión */
+  .print-area { 
+    display: block !important; 
+    position: fixed; 
+    top: 0; left: 0; right: 0; bottom: 0; 
+    z-index: 99999; 
+    background: white; color: black; 
+    padding: 15mm; /* Márgenes para el papel */
+  }
+
+  /* Intentar quitar cabeceras del navegador */
+  @page { margin: 0; }
 }
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+@media screen {
+  .print-area { display: none !important; }
 }

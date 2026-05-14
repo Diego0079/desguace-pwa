@@ -97,7 +97,7 @@ export default function App() {
           {view === 'admin' && isAdmin && <AdminPanel />}
           {view === 'detail' && <VehicleDetail vehicleId={selectedVehicleId} goBack={() => setView('list')} />}
 
-          <nav className="fixed bottom-0 left-0 right-0 bg-green-950 border-t-4 border-yellow-400 flex justify-around py-3 px-1 z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.5)]">
+                    <nav className="fixed bottom-0 left-0 right-0 bg-green-950 border-t-4 border-yellow-400 flex justify-around py-3 px-1 z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.5)] print:hidden">
             <button onClick={() => setView('list')} className={`flex flex-col items-center gap-1 transition-colors ${view === 'list' ? 'text-yellow-400' : 'text-green-800'}`}>
               <Search className="w-6 h-6" /><span className="text-[9px] font-black uppercase tracking-widest">Stock</span>
             </button>
